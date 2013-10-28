@@ -1,0 +1,12 @@
+<h1 class="home-h1">Welcome to healthConnect</h1>
+
+  <tbody class="home-condition-table">
+      <% @conditions.each do |condition| %>
+      <tr class="home-condition-tr">
+        <td class="home-condition-td"><%= render 'condition_template', :condition => condition %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
