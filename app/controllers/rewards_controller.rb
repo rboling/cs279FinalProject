@@ -28,7 +28,7 @@ class RewardsController < ApplicationController
 
     respond_to do |format|
       if @reward.save
-        format.html { redirect_to @reward, notice: 'Reward was successfully created.' }
+        format.html { redirect_to Condition.find(@reward.condition_id), notice: 'Reward was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reward }
       else
         format.html { render action: 'new' }
@@ -69,6 +69,6 @@ class RewardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reward_params
-      params.require(:reward).permit(:name, :body)
+      params.require(:reward).permit(:name, :body, :condition_id)
     end
 end

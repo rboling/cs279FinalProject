@@ -49,7 +49,21 @@ a#jquery-path{
 
 #reward-div{
 	display: none;
+	padding-left: 30px;
 }
 #risk-div{
 	display: block;
+	padding-left: 30px;
+}
+.risk-body{
+	font-size: 20px;
+}
+.reward-body{
+	font-size: 20px;
+}
+.h3-reward{
+	font-size: 25px;
+}
+.h3-risk{
+	font-size: 25px;
 }

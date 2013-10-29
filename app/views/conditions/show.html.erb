@@ -26,7 +26,7 @@
   <div id="reward-div">
     <table id="reward-table">
       <tbody id="reward-table-body">
-        <%= link_to "New Reward", new_reward_path(:condition => @condition.id) %>
+        <%= link_to "New Reward", new_reward_path(:condition_id => @condition.id) %>
         <% @condition.rewards.each do |reward| %>
           <tr class="condition-reward">
             <td class="condition-reward-td"><%= render 'reward_template', :reward => reward %></td>

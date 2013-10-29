@@ -29,7 +29,7 @@ class RisksController < ApplicationController
     puts @risk.condition_id
     respond_to do |format|
       if @risk.save
-        format.html { redirect_to @risk, notice: 'Risk was successfully created.' }
+        format.html { redirect_to Condition.find(@risk.condition_id), notice: 'Risk was successfully created.' }
         format.json { render action: 'show', status: :created, location: @risk }
       else
         format.html { render action: 'new' }
