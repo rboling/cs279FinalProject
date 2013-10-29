@@ -5,6 +5,7 @@ class ConditionsController < ApplicationController
   # GET /conditions.json
   def index
     @conditions = Condition.all
+    @condition = Condition.new
   end
 
   # GET /conditions/1
@@ -28,8 +29,9 @@ class ConditionsController < ApplicationController
 
     respond_to do |format|
       if @condition.save
-        format.html { redirect_to @condition, notice: 'Condition was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @condition }
+        format.html { redirect_to root_url, notice: 'Condition was successfully created.' }
+        #format.json { render action: 'show', status: :created, location: @condition }
+        format.json { render action: 'index', status: :created, location: root_url}
       else
         format.html { render action: 'new' }
         format.json { render json: @condition.errors, status: :unprocessable_entity }

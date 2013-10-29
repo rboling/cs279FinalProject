@@ -1,9 +1,51 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @condition.name %>
+  <div class="condition-name">
+    <h1><%= @condition.name %><h1>
+  </div>
+  <div class="options-select">
+	<select id="risk-reward-select" onchange="showInfo(this)">
+	  <option value="risks">Risks</option>
+	  <option value="rewards">Rewards</option>
+	</select>
+  </div>
+  <div id="risk-div">
+    <table id="risk-table">
+      <%= link_to "New Risk", new_risk_path(:condition_id => @condition.id) %>
+      <tbody id="risk-table-body">
+        <% @condition.risks.each do |risk| %>
+          <tr class="condition-risk">
+            <td class="condition-risk-td"><%= render 'risk_template', :risk => risk %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div id="reward-div">
+    <table id="reward-table">
+      <tbody id="reward-table-body">
+        <%= link_to "New Reward", new_reward_path(:condition => @condition.id) %>
+        <% @condition.rewards.each do |reward| %>
+          <tr class="condition-reward">
+            <td class="condition-reward-td"><%= render 'reward_template', :reward => reward %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </p>
 
-<%= link_to 'Edit', edit_condition_path(@condition) %> |
-<%= link_to 'Back', conditions_path %>
+<script>
+  function showInfo(e){
+    if(e.selectedIndex == 0){
+      document.getElementById("reward-div").style.display = "none";
+      document.getElementById("risk-div").style.display = "block";
+    }
+    else{
+      document.getElementById("risk-div").style.display = "none";
+      document.getElementById("reward-div").style.display = "block";
+    } 
+  }
+</script>

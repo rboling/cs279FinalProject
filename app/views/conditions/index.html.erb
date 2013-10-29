@@ -1,27 +1,25 @@
-<h1>Listing conditions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @conditions.each do |condition| %>
-      <tr>
-        <td><%= condition.name %></td>
-        <td><%= link_to 'Show', condition %></td>
-        <td><%= link_to 'Edit', edit_condition_path(condition) %></td>
-        <td><%= link_to 'Destroy', condition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <tbody class="home-condition-table">
+      <div class="new-condition-path">
+        <%= link_to 'New Condition', new_condition_path %>
+      </div>
+      <!--<div class="new-condition-path-jquery">
+        <a id="jquery-path" href="#">A really New Condition</h3>
+      </div>-->
+      <% @conditions.each do |condition| %>
+      <tr class="home-condition">
+        <td class="home-condition-td"><%= render 'condition_template', :condition => condition %></td>
       </tr>
-    <% end %>
+      <% end %>
   </tbody>
-</table>
+  <script>
+    /*$("#jquery-path").click(function(){
+      if (document.getElementById("new_condition") == null) {
+        $(this).append("<%= escape_javascript(render "form") %>");
+        document.getElementById("new_condition").style.display = "Block"
+      }
+      else{
+        (document.getElementById("new_condition")).style.display = "None";
+      }
+    }); */
+  </script>
 
-<br>
-
-<%= link_to 'New Condition', new_condition_path %>

@@ -1,11 +1,15 @@
 HealthConnect::Application.routes.draw do
+  resources :rewards
+
+  resources :risks
+
   resources :conditions
 
   resources :posts
 
   resources :users
 
-  root 'homes#index'
+  root 'conditions#index'
 
   get 'home' => 'homes#index'
 

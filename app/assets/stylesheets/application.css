@@ -17,3 +17,39 @@
 .h1-condition-link{
 	text-align: center;
 }
+
+.the-header-link{
+	font-size: 20px;
+}
+
+.new-condition-path{
+	font-size: 30px;
+	text-align: center;
+}
+
+.new-condition-path-jquery{
+	text-align: center;
+	padding-top: 30px;
+}
+
+
+a#jquery-path{
+	font-size: 24px;
+	text-align: center;
+}
+
+.condition-name{
+	text-align: center;
+	font-size: 26px;
+}
+
+.options-select{
+	text-align: center;
+}
+
+#reward-div{
+	display: none;
+}
+#risk-div{
+	display: block;
+}

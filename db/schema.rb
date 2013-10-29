@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028013605) do
+ActiveRecord::Schema.define(version: 20131029125516) do
 
   create_table "conditions", force: true do |t|
     t.string   "name"
@@ -29,6 +29,26 @@ ActiveRecord::Schema.define(version: 20131028013605) do
 
   add_index "posts", ["condition_id"], name: "index_posts_on_condition_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "rewards", force: true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "condition_id"
+  end
+
+  add_index "rewards", ["condition_id"], name: "index_rewards_on_condition_id", using: :btree
+
+  create_table "risks", force: true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "condition_id"
+  end
+
+  add_index "risks", ["condition_id"], name: "index_risks_on_condition_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
