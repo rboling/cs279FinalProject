@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @point.condition %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @point.body %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @point.summary %>
+</p>
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>

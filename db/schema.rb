@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131029125516) do
+ActiveRecord::Schema.define(version: 20131030023957) do
 
   create_table "conditions", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "points", force: true do |t|
+    t.text     "body"
+    t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "side_id"
+  end
+
+  add_index "points", ["side_id"], name: "index_points_on_side_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
@@ -50,6 +60,18 @@ ActiveRecord::Schema.define(version: 20131029125516) do
 
   add_index "risks", ["condition_id"], name: "index_risks_on_condition_id", using: :btree
 
+  create_table "sides", force: true do |t|
+    t.integer  "condition_id"
+    t.text     "body"
+    t.string   "summary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_left"
+    t.boolean  "is_right"
+  end
+
+  add_index "sides", ["condition_id"], name: "index_sides_on_condition_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -57,6 +79,9 @@ ActiveRecord::Schema.define(version: 20131029125516) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
   end
 
 end

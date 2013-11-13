@@ -40,6 +40,9 @@ gem 'sunspot_rails'
 
 gem "sunspot_solr"
 
+gem "jquery-ui-rails"
+
+gem 'authlogic'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

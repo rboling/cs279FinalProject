@@ -1,10 +1,9 @@
   <tbody class="home-condition-table">
       <div class="new-condition-path">
-        <%= link_to 'New Condition', new_condition_path %>
+        <% if current_user %>
+          <%= link_to 'New Condition', new_condition_path %>
+        <% end %>
       </div>
-      <!--<div class="new-condition-path-jquery">
-        <a id="jquery-path" href="#">A really New Condition</h3>
-      </div>-->
       <% @conditions.each do |condition| %>
       <tr class="home-condition">
         <td class="home-condition-td"><%= render 'condition_template', :condition => condition %></td>
@@ -12,14 +11,5 @@
       <% end %>
   </tbody>
   <script>
-    /*$("#jquery-path").click(function(){
-      if (document.getElementById("new_condition") == null) {
-        $(this).append("<%= escape_javascript(render "form") %>");
-        document.getElementById("new_condition").style.display = "Block"
-      }
-      else{
-        (document.getElementById("new_condition")).style.display = "None";
-      }
-    }); */
   </script>
 

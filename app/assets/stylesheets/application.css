@@ -19,7 +19,9 @@
 }
 
 .the-header-link{
-	font-size: 20px;
+	font-size: 30px;
+	padding-left: 40px;
+	padding-top: 40px
 }
 
 .new-condition-path{
@@ -73,5 +75,77 @@ a#jquery-path{
 }
 
 #new_condition{
+	text-align: center;
+}
+#risk-div{
+	text-align: center;
+}
+#reward-div{
+	text-align: center;
+}
+#risk-table{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#reward-table{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#risk-table-body{
+	text-align: center;
+}
+#reward-table-body{
+	text-align: center;
+}
+.condition-risk{
+	text-align: center;
+}
+#pro-ideas{
+	float: left;
+	width: 15%;
+	margin-left: 15px;
+	border: solid;
+}
+.ideas-li{
+	text-align: center;
+	padding-top: 10px;
+	border: dotted;
+}
+.con-ideas{
+	margin-right: 15px;
+	float: right;
+	width: 15%;
+	border: solid;
+}
+#chosen-ideas{
+	text-align: center;
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#new_user_session{
+	text-align: center;
+}
+li{
+  list-style: none;
+}
+#login-id{
+	text-align: center;
+}
+#new-user{
+	text-align: center;
+}
+#new_user{
+	text-align: center;
+}
+.add-side{
+	text-align: center;
+}
+#new_side{
+	text-align: center;
+}
+#h1-side{
 	text-align: center;
 }

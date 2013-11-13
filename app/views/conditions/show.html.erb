@@ -2,50 +2,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <div class="add-side">
+    <% if current_user %>
+      <%= link_to "add a side", new_side_path(:condition_id => @condition.id)%>
+    <% end %>
+  </div>
   <div class="condition-name">
     <h1><%= @condition.name %><h1>
   </div>
-  <div class="options-select">
-	<select id="risk-reward-select" onchange="showInfo(this)">
-	  <option value="risks">Risks</option>
-	  <option value="rewards">Rewards</option>
-	</select>
-  </div>
-  <div id="risk-div">
-    <table id="risk-table">
-      <%= link_to "New Risk", new_risk_path(:condition_id => @condition.id) %>
-      <tbody id="risk-table-body">
-        <% @condition.risks.each do |risk| %>
-          <tr class="condition-risk">
-            <td class="condition-risk-td"><%= render 'risk_template', :risk => risk %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div id="reward-div">
-    <table id="reward-table">
-      <tbody id="reward-table-body">
-        <%= link_to "New Reward", new_reward_path(:condition_id => @condition.id) %>
-        <% @condition.rewards.each do |reward| %>
-          <tr class="condition-reward">
-            <td class="condition-reward-td"><%= render 'reward_template', :reward => reward %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <ul id="pro-ideas" class="to-sort">
+    <% @condition.sides.each do |side| %>
+      <% if side.is_left %>
+        <li class="ui-state-default"><%= side.body %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <ul id="chosen-ideas" class="to-sort">
+    <li class="ui-state-highlight">Place your opinions here</li>
+  </ul>
+  <div class="con-ideas">
   </div>
 </p>
 
 <script>
-  function showInfo(e){
-    if(e.selectedIndex == 0){
-      document.getElementById("reward-div").style.display = "none";
-      document.getElementById("risk-div").style.display = "block";
-    }
-    else{
-      document.getElementById("risk-div").style.display = "none";
-      document.getElementById("reward-div").style.display = "block";
-    } 
-  }
+  $(function() {
+    $( "#chosen-ideas, #pro-ideas" ).sortable({
+      connectWith: ".to-sort"
+    }).disableSelection();
+  });
 </script>

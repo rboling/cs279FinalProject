@@ -11,7 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $( "#chosen-ideas, #pro-ideas" ).sortable({
+    connectWith: ".to-sort"
+  }).disableSelection();
+});
+

@@ -3,6 +3,7 @@
 <head>
   <title>riskIt</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -10,7 +11,15 @@
 <body>
   <div class="the-header-link">
   	<%= link_to "Welcome to riskIt", root_url %>
+  	<br />
+  	<br />
+  	<% if current_user %>
+  	  <%= link_to "Logout", logout_path %>
+    <% else %>
+      <%= link_to "Login", login_path %>
+  	<% end %>
   </div>
+  
 
 <%= yield %>
 

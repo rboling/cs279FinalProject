@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @side.condition %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @side.body %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @side.summary %>
+</p>
+
+<%= link_to 'Edit', edit_side_path(@side) %> |
+<%= link_to 'Back', sides_path %>
