@@ -106,7 +106,31 @@ a#jquery-path{
 	float: left;
 	width: 15%;
 	margin-left: 15px;
+	border: dashed;
+	height: 500px;
+	overflow-y: auto;
+}
+#your-pro-ideas{
+	float: left;
+	margin-left: 50px;
 	border: solid;
+	width: 15%;
+	height: 500px;
+	overflow-y: auto;
+}
+#your-con-ideas{
+	float: right;
+	margin-right: 50px;
+	border: solid;
+	width: 15%;
+	height: 500px;
+}
+#con-ideas{
+	width: 15%;
+	float: right;
+	margin-right: 15px;
+	height: 500px;
+	border: dashed;
 }
 .ideas-li{
 	text-align: center;
@@ -147,5 +171,20 @@ li{
 	text-align: center;
 }
 #h1-side{
+	text-align: center;
+}
+#span-pro{
+	float: left;
+	display: inline;
+	margin-left: 75px;
+}
+#span-con{
+	float: right;
+	display: inline;
+	margin-right: 100px;
+}
+#others-thought-id{
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
 }

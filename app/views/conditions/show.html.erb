@@ -7,27 +7,36 @@
       <%= link_to "add a side", new_side_path(:condition_id => @condition.id)%>
     <% end %>
   </div>
-  <div class="condition-name">
-    <h1><%= @condition.name %><h1>
+  <div id="others-thought-id">
+    <button href="#" id="others-thought-id-button" class="others-thought-class">Want to see what others thought?</button>
   </div>
-  <ul id="pro-ideas" class="to-sort">
+  <br />
+  <br />
+  <div class="condition-name">
+    <h1><%= @condition.name %></h1>
+  </div>
+  <button href="#" id="span-pro" class="span-pro-class">Add Pro Ideas</button>
+  <button href="#" id="span-con" class="span-con-class">Add Con Ideas</button>
+  <br />
+  <br />
+  <ul id="pro-ideas" class="to-sort-pro">
     <% @condition.sides.each do |side| %>
       <% if side.is_left %>
-        <li class="ui-state-default"><%= side.body %></li>
+        <li class="ui-state-highlight"><%= side.body %></li>
       <% end %>
     <% end %>
   </ul>
-  <ul id="chosen-ideas" class="to-sort">
-    <li class="ui-state-highlight">Place your opinions here</li>
+  <ul id="your-pro-ideas" class="to-sort-pro">
+    <li class="ui-state-highlight">Why choose pro</li>
   </ul>
-  <div class="con-ideas">
-  </div>
+  <ul id="con-ideas" class="to-sort-con">
+    <% @condition.sides.each do |side| %>
+      <% if !(side.is_left)%>
+        <li class="ui-state-highlight"><%= side.body %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <ul id="your-con-ideas" class="to-sort-con">
+    <li class="ui-state-highlight">Why choose con</li>
+  </ul
 </p>
-
-<script>
-  $(function() {
-    $( "#chosen-ideas, #pro-ideas" ).sortable({
-      connectWith: ".to-sort"
-    }).disableSelection();
-  });
-</script>

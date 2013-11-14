@@ -18,8 +18,14 @@
 //= require_tree .
 
 $(function() {
-  $( "#chosen-ideas, #pro-ideas" ).sortable({
-    connectWith: ".to-sort"
+  $( "#pro-ideas, #your-pro-ideas" ).sortable({
+    connectWith: ".to-sort-pro"
   }).disableSelection();
 });
-
+$(function() {
+  $( "#con-ideas, #your-con-ideas" ).sortable({
+    connectWith: ".to-sort-con"
+  }).disableSelection();
+});
+document.write(document.getElementById("pro-ideas").scrolling);
+document.write(document.getElementById("your-pro-ideas").scrolling);
