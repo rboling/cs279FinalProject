@@ -6,4 +6,7 @@ class HomesController < ApplicationController
     @conditions = Condition.all
   end
 
+  def about
+  end
+
 end

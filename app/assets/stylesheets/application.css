@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery.ui.all
+ *= require jquery.modal
  */
 .home-h1{
 	text-align: center;
@@ -105,30 +107,30 @@ a#jquery-path{
 #pro-ideas{
 	float: left;
 	width: 15%;
-	margin-left: 15px;
+	margin-left: 1%;
 	border: dashed;
 	height: 500px;
 	overflow-y: auto;
 }
 #your-pro-ideas{
 	float: left;
-	margin-left: 50px;
+	margin-left: 3%;
 	border: solid;
-	width: 15%;
+	width: 14%;
 	height: 500px;
 	overflow-y: auto;
 }
 #your-con-ideas{
 	float: right;
-	margin-right: 50px;
+	margin-right: 3%;
 	border: solid;
-	width: 15%;
+	width: 14%;
 	height: 500px;
 }
 #con-ideas{
 	width: 15%;
 	float: right;
-	margin-right: 15px;
+	margin-right: 1%;
 	height: 500px;
 	border: dashed;
 }
@@ -187,4 +189,45 @@ li{
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+}
+#option-one{
+	float: left;
+	margin-left: 5%;
+}
+#option-two{
+	float: right;
+	margin-right: 5%;
+}
+#instructions{
+	text-align: center;
+}
+#pro-here{
+	float: left;
+	margin-left: 3%;
+}
+#con-here{
+	float: right;
+	margin-right: 3%;
+}
+#to-here-pro{
+	float: left;
+	margin-left: 6%;
+}
+#to-here-con{
+	float: right;
+	margin-right: 7%;
+}
+#about-h1{
+	text-align: center;
+}
+#the-pro-form{
+	float: left;
+	display: none;
+}
+#the-con-form{
+	float: right;
+	display: none;
+}
+#landing-stuff{
+	margin-left: 4%;
 }

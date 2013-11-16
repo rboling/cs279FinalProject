@@ -11,6 +11,7 @@ class ConditionsController < ApplicationController
   # GET /conditions/1
   # GET /conditions/1.json
   def show
+    @side = Side.new
   end
 
   # GET /conditions/new

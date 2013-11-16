@@ -25,11 +25,13 @@ class SidesController < ApplicationController
   # POST /sides.json
   def create
     @side = Side.new(side_params)
-
+    logger.debug "\n\n\n\n\nIM IN HERE\n\n\n\n\n\n\n"
     respond_to do |format|
       if @side.save
-        format.html { redirect_to @side, notice: 'Side was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @side }
+        logger.debug "fofofofofofofofofofofofofofofofofofofofofofofof"
+        format.html {}#redirect_to @side, notice: 'Side was successfully created.' }
+        format.json {}#render action: 'show', status: :created, location: @side }
+        format.js {}
       else
         format.html { render action: 'new' }
         format.json { render json: @side.errors, status: :unprocessable_entity }
@@ -69,6 +71,6 @@ class SidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def side_params
-      params.require(:side).permit(:condition_id, :body, :summary)
+      params.require(:side).permit(:condition_id, :body, :summary, :is_left)
     end
 end

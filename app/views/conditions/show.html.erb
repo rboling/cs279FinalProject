@@ -7,36 +7,64 @@
       <%= link_to "add a side", new_side_path(:condition_id => @condition.id)%>
     <% end %>
   </div>
-  <div id="others-thought-id">
-    <button href="#" id="others-thought-id-button" class="others-thought-class">Want to see what others thought?</button>
-  </div>
-  <br />
-  <br />
   <div class="condition-name">
     <h1><%= @condition.name %></h1>
   </div>
-  <button href="#" id="span-pro" class="span-pro-class">Add Pro Ideas</button>
-  <button href="#" id="span-con" class="span-con-class">Add Con Ideas</button>
+  <div id="others-thought-id">
+    <button href="#" id="others-thought-id-button" class="others-thought-class">Want to see what others thought?</button>
+  </div>
+  <div id="treatment-titles">
+    <h2 id="option-one">Disease Option One</h2>
+    <h2 id="option-two">Disease Option Two</h2>
+  </div>
   <br />
   <br />
-  <ul id="pro-ideas" class="to-sort-pro">
-    <% @condition.sides.each do |side| %>
-      <% if side.is_left %>
-        <li class="ui-state-highlight"><%= side.body %></li>
+  <br />
+  <br />
+  <button href="#" id="span-pro" class="span-pro-class">Add pro ideas</button>
+  <button href="#" id="span-con" class="span-con-class">Add con ideas</button>
+  <br />
+  <br />
+  <div id="the-pro-form">
+    <%= render :partial => "side_form", :locals => {:is_left => true, :condition_id => @condition.id} %>
+    <br />
+    <br />
+    <br />
+  </div>
+  <div id="the-con-form">
+    <%= render "side_form", :locals => {:is_left => false, :condition_id => @condition.id} %>
+    <br />
+    <br />
+    <br />
+  </div>
+  <div id="instructions">
+    <h4 id="pro-here">Drag stuff from here</h4>
+    <h4 id="to-here-pro">To here!(drag reasons here)</h4>
+    <h4 id="con-here">Drag stuff from here</h4>
+    <h4 id="to-here-con">To here!(drag reasons here)</h4>
+  </div>
+  <br />
+  <br />
+  <br />
+  <div id="the-lists">
+    <ul id="pro-ideas" class="to-sort-pro">
+      <% @condition.sides.each do |side| %>
+        <% if side.is_left %>
+          <li class="ui-state-highlight"><%= side.body %></li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
-  <ul id="your-pro-ideas" class="to-sort-pro">
-    <li class="ui-state-highlight">Why choose pro</li>
-  </ul>
-  <ul id="con-ideas" class="to-sort-con">
-    <% @condition.sides.each do |side| %>
-      <% if !(side.is_left)%>
-        <li class="ui-state-highlight"><%= side.body %></li>
+    </ul>
+
+    <ul id="your-pro-ideas" class="to-sort-pro">
+    </ul>
+    <ul id="con-ideas" class="to-sort-con">
+      <% @condition.sides.each do |side| %>
+        <% if !(side.is_left)%>
+          <li class="ui-state-highlight"><%= side.body %></li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
-  <ul id="your-con-ideas" class="to-sort-con">
-    <li class="ui-state-highlight">Why choose con</li>
-  </ul
+    </ul>
+    <ul id="your-con-ideas" class="to-sort-con">
+    </ul>
+  </div>
 </p>

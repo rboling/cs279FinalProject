@@ -1,15 +1,62 @@
-  <tbody class="home-condition-table">
-      <div class="new-condition-path">
-        <% if current_user %>
-          <%= link_to 'New Condition', new_condition_path %>
-        <% end %>
-      </div>
-      <% @conditions.each do |condition| %>
-      <tr class="home-condition">
-        <td class="home-condition-td"><%= render 'condition_template', :condition => condition %></td>
-      </tr>
+<br />
+<div id="landing-stuff">
+  <p><b>RiskIt</b> is a deliberation platform that aims to help people faced with tough medical decisions to make a <i>smarter, more informed</i> decision. Instead of spoonfeeding medical information to individuals from a textbook, RiskIt exposes individuals to the wide array of reasons why <b>patient experts</b> would recommend one therapy versus another. The reasons in favor of one treatment option over another may be medical, practical, or financial, but most importantly, the reasons are <i>personal</i>.</p>
+  <p>
+  <b>Who are our patient experts?</b>
+  <ul>
+  <li>Empowered patients</li>
+  <li>Patients who have already faced this decision in the past</li>
+  <li>Individuals whose loved ones have faced a similar decision</li>
+  <li>Physicians</li>
+  <li>Nurses</li>
+  <li>Anyone with experience related to the decision</li>
+  <li>You</li>
+  </ul>
+  </p>
+
+  <p><b>Shouldn't doctors be the main source of knowledge for a medical decision?</b></p>
+
+  <p>While we firmly believe that individualized care requires input from your doctor, we also believe that empowered patients make better decisions. We hope that by using <b>RiskIt</b>, you'll be able to weigh both options equally and know which questions to ask your doctor that will help you to make the decision that is right for you.</p>
+
+  <p><b>How does RiskIt work?</b></p>
+
+  <p>First, choose the decision you have to make. Next, tell us how informed you feel about the decision and which one you're leaning towards.</p>
+
+  <p>Next, use <b>RiskIt</b> to see a list of reasons why other people would recommend either of the two options. If you have a reason why you think one option is preferable over the other, feel free to add it to the list. This will help others in making their decision too!</p>
+
+  <p>Finally, click on the button at the top of the page to see which way other people are leaning and what the top reasons people had for choosing one option versus the other.</p>
+
+  <p><b>How do I know that the information on RiskIt is accurate?</b></p>
+
+  <p>Though there is no way to ensure that the reasons provided are accurate, we ask that patient experts provide links to back up medical claims so that users can verify the source for themselves. The reasons are also naturally ranked in way that promotes newer and more popular reasons to show up towards to the top of the list.</p>
+
+  <p><b>Who is on our team?</p></b>
+
+  <p><b>Molly Finn</b><br />
+  <i>Harvard University</i></p>
+
+  <p><b>Robert Boling</b><br />
+  <i>Harvard University</i></p>
+
+  <p><b>Karandeep Singh, M.D.</b><br />
+  Nephrology Fellow<br />
+  Brigham and Women's / Massachussett's General Hospital <br />
+  <i>Harvard University</i></p>
+</div>
+<tbody class="home-condition-table">
+    <div class="new-condition-path">
+      <% if current_user %>
+        <%= link_to 'New Condition', new_condition_path %>
       <% end %>
-  </tbody>
-  <script>
-  </script>
+    </div>
+    <% @conditions.each do |condition| %>
+      <% if condition.name == "Choosing a type of dialysis" %>
+        <tr class="home-condition">
+          <td class="home-condition-td"><%= render 'condition_template', :condition => condition %></td>
+        </tr>
+      <% end %>
+    <% end %>
+</tbody>
+<script>
+</script>
 
