@@ -18,4 +18,10 @@ $(document).ready ->
   	else
   	  $("#the-con-form").css("display","block")
   	  $(this).text("Cancel")
-  
+jQuery ->
+  $('#slider').slider({
+    range: "min",
+    min: 0,
+    max: 500,
+    value: 250
+  })

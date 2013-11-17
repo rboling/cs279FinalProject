@@ -12,6 +12,7 @@
  *= require_tree .
  *= require jquery.ui.all
  *= require jquery.modal
+ *= require jquery.ui.slider
  */
 .home-h1{
 	text-align: center;
@@ -238,4 +239,8 @@ li{
 }
 #landing-stuff{
 	margin-left: 4%;
+}
+#slider{
+	margin: auto;
+	text-align: center;
 }
