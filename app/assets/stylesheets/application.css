@@ -111,6 +111,7 @@ a#jquery-path{
 	border: dashed;
 	height: 500px;
 	overflow-y: auto;
+	font-size: 20px;
 }
 #your-pro-ideas{
 	float: left;
@@ -119,6 +120,7 @@ a#jquery-path{
 	width: 14%;
 	height: 500px;
 	overflow-y: auto;
+	font-size: 20px;
 }
 #your-con-ideas{
 	float: right;
@@ -126,6 +128,7 @@ a#jquery-path{
 	border: solid;
 	width: 14%;
 	height: 500px;
+	font-size: 20px;
 }
 #con-ideas{
 	width: 15%;
@@ -133,6 +136,7 @@ a#jquery-path{
 	margin-right: 1%;
 	height: 500px;
 	border: dashed;
+	font-size: 20px;
 }
 .ideas-li{
 	text-align: center;
@@ -178,12 +182,12 @@ li{
 #span-pro{
 	float: left;
 	display: inline;
-	margin-left: 75px;
+	margin-left: 0%;
 }
 #span-con{
 	float: right;
 	display: inline;
-	margin-right: 100px;
+	margin-right: 0%;
 }
 #others-thought-id{
 	margin-left: auto;
@@ -204,18 +208,22 @@ li{
 #pro-here{
 	float: left;
 	margin-left: 3%;
+	font-size: 20px;
 }
 #con-here{
 	float: right;
 	margin-right: 3%;
+	font-size: 20px;
 }
 #to-here-pro{
 	float: left;
 	margin-left: 6%;
+	font-size: 20px;
 }
 #to-here-con{
 	float: right;
 	margin-right: 7%;
+	font-size: 20px;
 }
 #about-h1{
 	text-align: center;
