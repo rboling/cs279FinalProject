@@ -43,6 +43,7 @@ gem 'sunspot_rails'
 gem "sunspot_solr"
 
 gem "jquery-ui-rails"
+gem 'rails_12factor'
 
 gem 'authlogic'
 group :doc do
