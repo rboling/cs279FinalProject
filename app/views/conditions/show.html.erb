@@ -1,23 +1,41 @@
 
 <p id="notice"><%= notice %></p>
-
-<p>
+<div id="step-one">
+  <h1>Step 1: What are your current thoughts on this decision?</h1>
+  <br />
+</div>
+<div id="preamble">
+  <label for="belief"> <h3>How informed do you feel?</h2></label>
+  <input type="text" id="belief" style="display: none; border: 0; color: #f6931f; font-weight: bold;" />
+  <div id="slider"><span id="not-informed">Not Informed</span><span id="informed">Very Informed</span></div>
+  <br />
+</div>
+<div id="leaning">
+  <label for="leaning-belief"> <h3>Which way are you leaning?</h3></label>
+  <input type="text" id="leaning-belief" style="display: none; border: 0; color: #f6931f; font-weight: bold;" />
+  <div id="slider-two"><span id="hd">Hemodialysis</span><span id="pd">Peritoneal Dialysis</span></div>
+  <br />
+</div>
+<div id="step-two">
+  <h1>Step 2: What are your current thoughts on this decision?</h1>
+  <br />
+</div>
+<div id="the-body">
   <div class="add-side">
     <% if current_user %>
       <%= link_to "add a side", new_side_path(:condition_id => @condition.id)%>
     <% end %>
   </div>
   <div class="condition-name">
-    <h1><%= @condition.name %></h1>
+    <h2><%= @condition.name %></h2>
   </div>
   <div id="others-thought-id">
     <button href="#" id="others-thought-id-button" class="others-thought-class">Want to see what others thought?</button>
   </div>
   <br />
-  <div id="slider"></div>
   <div id="treatment-titles">
-    <h2 id="option-one">Disease Option One</h2>
-    <h2 id="option-two">Disease Option Two</h2>
+    <h2 id="option-one">Hemodialysis</h2>
+    <h2 id="option-two">Peritoneal Dialysis</h2>
   </div>
   <br />
   <br />
@@ -32,18 +50,25 @@
     <br />
     <br />
     <br />
+    <br />
+    <br />
+    <br />
   </div>
+
   <div id="the-con-form">
     <%= render :partial => "side_form", :locals => {:is_left => false, :condition_id => @condition.id} %>
     <br />
     <br />
     <br />
+    <br />
+    <br />
+    <br />
   </div>
   <div id="instructions">
-    <h4 id="pro-here">Drag stuff from here</h4>
-    <h4 id="to-here-pro">To here!(drag reasons here)</h4>
-    <h4 id="con-here">Drag stuff from here</h4>
-    <h4 id="to-here-con">To here!(drag reasons here)</h4>
+    <span id="pro-here">Why other people favor hemodialysis</span>
+    <h5 id="to-here-pro">Hemodialysis</h5>
+    <span id="con-here">Why other people favor peritoneal dialysis</span>
+    <h5 id="to-here-con">Peritoneal Dialysis</h5>
   </div>
   <br />
   <br />
@@ -69,4 +94,4 @@
     <ul id="your-con-ideas" class="to-sort-con">
     </ul>
   </div>
-</p>
+</div>

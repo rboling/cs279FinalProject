@@ -18,10 +18,22 @@ $(document).ready ->
   	else
   	  $("#the-con-form").css("display","block")
   	  $(this).text("Cancel")
+  #$("#preamble-button").click ->
+    #$("#preamble").css("display", "none")
+    #$("#the-body").css("display", "block")
+
 jQuery ->
   $('#slider').slider({
-    range: "min",
     min: 0,
-    max: 500,
-    value: 250
+    max: 100,
+    value: 50
+    slide: (event, ui) ->
+      $("#belief").val(ui.value)
+  })
+  $('#slider-two').slider({
+    min: 0,
+    max: 100,
+    value: 50
+    slide: (event, ui) ->
+      $("#leaning-belief").val(ui.value)
   })
