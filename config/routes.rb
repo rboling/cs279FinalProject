@@ -17,7 +17,7 @@ HealthConnect::Application.routes.draw do
 
   resources :user_sessions
 
-  root 'conditions#show', :id => 8
+  root 'conditions#show', :id => 1
 
   get 'home' => 'homes#index'
 
