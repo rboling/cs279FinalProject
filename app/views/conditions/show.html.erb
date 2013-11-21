@@ -1,10 +1,14 @@
 <div class="hero-unit">
-  <h1>Hello, world!</h1>
-  <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-  <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+  <h1>RiskIt: a deliberation tool for empowered patients</h1>
+  <p><b>RiskIt</b> is a deliberation platform that aims to help people faced with tough medical decisions to make a <i>smarter, more informed</i> decision. Instead of spoonfeeding medical information to individuals from a textbook, RiskIt exposes individuals to the wide array of reasons why <b>patient experts</b> would recommend one therapy versus another. The reasons in favor of one treatment option over another may be medical, practical, or financial, but most importantly, the reasons are <i>personal</i>.</p>
+  <p><a href="/about" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+<h2>This first implementation of RiskIt helps patients with chronic kidney disease deliberate between hemodialysis and peritoneal dialysis. Future implementations will address other tough medical decisions.</h2>
 </div>
 
 <p id="notice"><%= notice %></p>
+<div id="name-of-condition" style="margin:auto;text-align:center;">
+  <h1>Hemodialysis vs. Peritoneal Dialysis</h1>
+</div><hr>
 <div id="step-one">
   <h1>Step 1: What are your current thoughts on this decision?</h1>
   <br />
@@ -59,7 +63,7 @@
   <br />
   <div id="the-lists">
     <ul id="pro-ideas" class="to-sort-pro">
-      <% @condition.sides.each do |side| %>
+      <% (@condition.sides.sort_by{|s| (-s.count + ((Time.now - s.created_at)/1.hour))}).each do |side| %>
         <% if side.is_left %>
           <li class="ui-state-highlight" style="padding: 10px; border-color: #66CCFF; background: #99E6FF"><%= side.body %></li>
         <% end %>
@@ -69,7 +73,7 @@
     <ul id="your-pro-ideas" class="to-sort-pro">
     </ul>
     <ul id="con-ideas" class="to-sort-con">
-      <% @condition.sides.each do |side| %>
+      <% (@condition.sides.sort_by{|s| -s.count}).each do |side| %>
         <% if !(side.is_left)%>
           <li class="ui-state-highlight" style="padding: 10px; border-color: #33CC33; background: #85E085"><%= side.body %></li>
         <% end %>
@@ -122,9 +126,9 @@
         type: 'GET',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         data: $.param({"side": {"body": text}}),
-        success: function(){
-          alert("Thanks for Playing!");
-        }
+        //success: function(){
+        //  alert("Thanks for Playing!");
+        //}
       });
     });
     $("#your-con-ideas li").each(function(){
@@ -133,10 +137,10 @@
         url: 'http://localhost:3000/sides',
         type: 'GET',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-        data: $.param({"side": {"body": text}}),
-        success: function(){
-          alert("Thanks for Playing!");
-        }
+        data: $.param({"side": {"body": text}})
+        //success: function(){
+        //  alert("Thanks for Playing!");
+        //}
       });
     });
     var before_info = $("#belief").val();
@@ -147,22 +151,11 @@
       url: 'http://localhost:3000/responses',
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-      data: $.param({"response":{"before_information": before_info, "before_leaning": before_leaning, "after_information": after_info, "after_leaning": after_leaning}}),
-      success: function(){
-        alert("Your responses have been saved")
-      }
+      data: $.param({"response":{"before_information": before_info, "before_leaning": before_leaning, "after_information": after_info, "after_leaning": after_leaning}})
+      //success: function(){
+      //  alert("Your responses have been saved")
+      //}
     });
   });
-
-
-//$.ajax({ url: http://secret-retreat-5409.herokuapp.com/responses',
-    //  type: 'POST',
-    //  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-    //  data: $.param({"response": {"time1": parseInt(timeArray[0]),"time2": parseInt(timeArray[1]),"time3": parseInt(timeArray[2]),"time4": parseInt(timeArray[3]),"time5": parseInt(timeArray[4]),"time6": parseInt(timeArray[5]), "time7": parseInt(timeArray[6]), "time8": parseInt(timeArray[7]), "time9": parseInt(timeArray[8]), "time10": parseInt(timeArray[9]), "q1": parseInt(question_array[0]),"q2": parseInt(question_array[1]),"q3": parseInt(question_array[2]),"q4": parseInt(question_array[3]),"q5": parseInt(question_array[4]),"q6": parseInt(question_array[5]),"q7": parseInt(question_array[6]),"q8": parseInt(question_array[7]),"q9": parseInt(question_array[8]),"q10": parseInt(question_array[9]),"q11": parseInt(question_array[10]),"q12": parseInt(question_array[11]), "q13": parseInt(question_array[12])}}),
-    //  success: function() {
-    //    alert("Everything has been sent!");
-    //  }
-    //});
-
 
 </script>

@@ -17,7 +17,7 @@ HealthConnect::Application.routes.draw do
 
   resources :user_sessions
 
-  root 'conditions#index'
+  root 'conditions#show', :id => 8
 
   get 'home' => 'homes#index'
 
@@ -26,6 +26,8 @@ HealthConnect::Application.routes.draw do
   get '/logout' => 'user_sessions#destroy', as: :logout
 
   get '/about' => 'homes#about', as: :about
+
+  get '/contact' => "homes#contact", as: :contact
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
