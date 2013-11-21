@@ -112,6 +112,7 @@ a#jquery-path{
 	height: 500px;
 	overflow-y: auto;
 	font-size: 20px;
+	overflow: auto;
 }
 #your-pro-ideas{
 	float: left;
@@ -120,6 +121,7 @@ a#jquery-path{
 	height: 500px;
 	overflow-y: auto;
 	font-size: 20px;
+	overflow: auto;
 }
 #your-con-ideas{
 	float: right;
@@ -127,6 +129,7 @@ a#jquery-path{
 	border: solid;
 	height: 500px;
 	font-size: 20px;
+	overflow: auto;
 }
 #con-ideas{
 	float: right;
@@ -134,6 +137,7 @@ a#jquery-path{
 	height: 500px;
 	border: dashed;
 	font-size: 20px;
+	overflow: auto;
 }
 .ideas-li{
 	text-align: center;
@@ -175,16 +179,6 @@ li{
 }
 #h1-side{
 	text-align: center;
-}
-#span-pro{
-	float: left;
-	display: inline;
-	margin-left: 0%;
-}
-#span-con{
-	float: right;
-	display: inline;
-	margin-right: 0%;
 }
 #others-thought-id{
 	margin-left: auto;
@@ -230,11 +224,13 @@ li{
 	text-align: center;
 }
 #the-pro-form{
-	float: left;
+	text-align: center;
+	margin: auto;
 	display: none;
 }
 #the-con-form{
-	float: right;
+	text-align: center;
+	margin: auto;
 	display: none;
 }
 #landing-stuff{
@@ -251,6 +247,16 @@ li{
 	text-align: center;
 	width: 400px;
 }
+#slider-three{
+	margin: auto;
+	text-align: center;
+	width: 400px;
+}
+#slider-four{
+	margin: auto;
+	text-align: center;
+	width: 400px;	
+}
 #the-body{
 	margin-left: auto;
 	margin-right: auto;
@@ -261,7 +267,17 @@ li{
 	margin-right: auto;
 	margin-left: auto;
 }
+#preamble-two{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
 #leaning{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+#leaning-two{
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
@@ -274,11 +290,27 @@ li{
 	position: relative;
 	left: 260px;
 }
+#not-informed-two{
+	position: relative;
+	left: -260px;
+}
+#informed-two{
+	position: relative;
+	left: 260px;
+}
 #hd{
 	position: relative;
 	left: -260px;
 }
 #pd{
+	position: relative;
+	left: 260px;
+}
+#hd-two{
+	position: relative;
+	left: -260px;
+}
+#pd-two{
 	position: relative;
 	left: 260px;
 }
@@ -303,4 +335,34 @@ li{
 }
 .to-sort-con{
 	width: 250px;
+}
+#step-three{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	clear: both;
+}
+#learning-three{
+	text-align: center;
+	margin: auto;
+}
+#buttons{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#step-four{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#submit-button{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+#step-five{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
 }

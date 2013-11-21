@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Before information:</strong>
+  <%= @response.before_information %>
+</p>
+
+<p>
+  <strong>Before leaning:</strong>
+  <%= @response.before_leaning %>
+</p>
+
+<p>
+  <strong>After information:</strong>
+  <%= @response.after_information %>
+</p>
+
+<p>
+  <strong>After leaning:</strong>
+  <%= @response.after_leaning %>
+</p>
+
+<%= link_to 'Edit', edit_response_path(@response) %> |
+<%= link_to 'Back', responses_path %>

@@ -5,11 +5,22 @@ class SidesController < ApplicationController
   # GET /sides.json
   def index
     @sides = Side.all
+    #respond_to do |format|
+    #end
+    if request.xhr?
+      @side = Side.new(side_params)
+      puts "\n\n\n\n\n\n\n\nthe body \n\n\n\n\n\n"
+      theSide = Side.where(:body => @side.body).first
+      theSide.count += 1
+      theSide.save
+      puts "\n\n\n\n\n\n\nwe have a request!!!\n\n\n\n\n\n"
+    end
   end
 
   # GET /sides/1
   # GET /sides/1.json
   def show
+
   end
 
   # GET /sides/new
@@ -42,6 +53,7 @@ class SidesController < ApplicationController
   # PATCH/PUT /sides/1
   # PATCH/PUT /sides/1.json
   def update
+    puts "\n\n\n\n\n\n\n\n\n\nYOYOYOYOYOYOYOYOYOYOYO WE ARE IN HERE GetOnMyLevel\n\n\n\n\n\n\n\n\n\n"
     respond_to do |format|
       if @side.update(side_params)
         format.html { redirect_to @side, notice: 'Side was successfully updated.' }

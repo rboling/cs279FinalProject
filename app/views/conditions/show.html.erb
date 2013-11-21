@@ -1,3 +1,8 @@
+<div class="hero-unit">
+  <h1>Hello, world!</h1>
+  <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+  <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
 
 <p id="notice"><%= notice %></p>
 <div id="step-one">
@@ -17,8 +22,21 @@
   <br />
 </div>
 <div id="step-two">
-  <h1>Step 2: What are your current thoughts on this decision?</h1>
+  <h1>Step 2: Use RiskIt.</h1>
+  <h3>Drag reasons from the outer boxes to the inner boxes, or add your own reasons for why you favor hemodialysis or peritoneal dialysis.</h3>
   <br />
+</div>
+<div id="buttons">
+  <!--<button href="#" id="span-pro" class="span-pro-class">Add pro ideas</button>
+  <button href="#" id="span-con" class="span-con-class">Add con ideas</button>-->
+  <button href="#" id="span-pro">Add a reason in favor of hemodialysis</button>
+  <button href="#" id="span-con">Add a reason in favor of peritoneal dialysis</button>
+</div>
+<div id="the-pro-form">
+  <%= render :partial => "side_form", :locals => {:is_left => true, :condition_id => @condition.id} %>
+</div>
+<div id="the-con-form">
+  <%= render :partial => "another_side_form", :locals => {:is_left => false, :condition_id => @condition.id} %>
 </div>
 <div id="the-body">
   <div class="add-side">
@@ -26,44 +44,10 @@
       <%= link_to "add a side", new_side_path(:condition_id => @condition.id)%>
     <% end %>
   </div>
-  <div class="condition-name">
-    <h2><%= @condition.name %></h2>
-  </div>
-  <div id="others-thought-id">
-    <button href="#" id="others-thought-id-button" class="others-thought-class">Want to see what others thought?</button>
-  </div>
-  <br />
-  <div id="treatment-titles">
-    <h2 id="option-one">Hemodialysis</h2>
-    <h2 id="option-two">Peritoneal Dialysis</h2>
-  </div>
   <br />
   <br />
   <br />
   <br />
-  <button href="#" id="span-pro" class="span-pro-class">Add pro ideas</button>
-  <button href="#" id="span-con" class="span-con-class">Add con ideas</button>
-  <br />
-  <br />
-  <div id="the-pro-form">
-    <%= render :partial => "side_form", :locals => {:is_left => true, :condition_id => @condition.id} %>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-  </div>
-
-  <div id="the-con-form">
-    <%= render :partial => "side_form", :locals => {:is_left => false, :condition_id => @condition.id} %>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-  </div>
   <div id="instructions">
     <span id="pro-here">Why other people favor hemodialysis</span>
     <h5 id="to-here-pro">Hemodialysis</h5>
@@ -77,7 +61,7 @@
     <ul id="pro-ideas" class="to-sort-pro">
       <% @condition.sides.each do |side| %>
         <% if side.is_left %>
-          <li class="ui-state-highlight"><%= side.body %></li>
+          <li class="ui-state-highlight" style="padding: 10px; border-color: #66CCFF; background: #99E6FF"><%= side.body %></li>
         <% end %>
       <% end %>
     </ul>
@@ -87,7 +71,7 @@
     <ul id="con-ideas" class="to-sort-con">
       <% @condition.sides.each do |side| %>
         <% if !(side.is_left)%>
-          <li class="ui-state-highlight"><%= side.body %></li>
+          <li class="ui-state-highlight" style="padding: 10px; border-color: #33CC33; background: #85E085"><%= side.body %></li>
         <% end %>
       <% end %>
     </ul>
@@ -95,3 +79,90 @@
     </ul>
   </div>
 </div>
+<br />
+<br />
+<br />
+<div id="step-three">
+  <h1>Step 3: How do you feel now?</h1>
+  <!--<h3> After you've filled in information for Step 1 and Step 3, click here to see what other RiskIt users thought!</h3>-->
+  <br />
+</div>
+<div id="preamble-two">
+  <label for="belief-two"> <h3>How informed do you feel?</h2></label>
+  <input type="text" id="belief-two" style="display: none; border: 0; color: #f6931f; font-weight: bold;" />
+  <div id="slider-three"><span id="not-informed-two">Not Informed</span><span id="informed-two">Very Informed</span></div>
+  <br />
+</div>
+<div id="leaning-two">
+  <label for="leaning-belief-two"> <h3>Which way are you leaning?</h3></label>
+  <input type="text" id="leaning-belief-two" style="display: none; border: 0; color: #f6931f; font-weight: bold;" />
+  <div id="slider-four"><span id="hd-two">Hemodialysis</span><span id="pd-two">Peritoneal Dialysis</span></div>
+  <br />
+</div>
+<div id="step-four">
+  <h1>Step 4: Submit your results!</h1>
+  <!--<h3> After you've filled in information for Step 1 and Step 3, click here to see what other RiskIt users thought!</h3>-->
+  <br />
+</div>
+<div id="submit-button">
+  <button id="the-submit-button" class="btn btn-primary btn-large">Submit</button>
+</div>
+<div id="step-five">
+  <h1>Thank You!</h1>
+  <!--<h3> After you've filled in information for Step 1 and Step 3, click here to see what other RiskIt users thought!</h3>-->
+  <br />
+</div>
+
+<script>
+  $("#the-submit-button").click(function(){
+    $("#your-pro-ideas li").each(function(){
+      var text = $( this ).text();
+      $.ajax({
+        url: 'http://localhost:3000/sides',
+        type: 'GET',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: $.param({"side": {"body": text}}),
+        success: function(){
+          alert("Thanks for Playing!");
+        }
+      });
+    });
+    $("#your-con-ideas li").each(function(){
+      var text = $( this ).text();
+      $.ajax({
+        url: 'http://localhost:3000/sides',
+        type: 'GET',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: $.param({"side": {"body": text}}),
+        success: function(){
+          alert("Thanks for Playing!");
+        }
+      });
+    });
+    var before_info = $("#belief").val();
+    var before_leaning = $("#leaning-belief").val();
+    var after_info = $("#belief-two").val();
+    var after_leaning = $("#leaning-belief-two").val();
+    $.ajax({
+      url: 'http://localhost:3000/responses',
+      type: 'POST',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: $.param({"response":{"before_information": before_info, "before_leaning": before_leaning, "after_information": after_info, "after_leaning": after_leaning}}),
+      success: function(){
+        alert("Your responses have been saved")
+      }
+    });
+  });
+
+
+//$.ajax({ url: http://secret-retreat-5409.herokuapp.com/responses',
+    //  type: 'POST',
+    //  beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    //  data: $.param({"response": {"time1": parseInt(timeArray[0]),"time2": parseInt(timeArray[1]),"time3": parseInt(timeArray[2]),"time4": parseInt(timeArray[3]),"time5": parseInt(timeArray[4]),"time6": parseInt(timeArray[5]), "time7": parseInt(timeArray[6]), "time8": parseInt(timeArray[7]), "time9": parseInt(timeArray[8]), "time10": parseInt(timeArray[9]), "q1": parseInt(question_array[0]),"q2": parseInt(question_array[1]),"q3": parseInt(question_array[2]),"q4": parseInt(question_array[3]),"q5": parseInt(question_array[4]),"q6": parseInt(question_array[5]),"q7": parseInt(question_array[6]),"q8": parseInt(question_array[7]),"q9": parseInt(question_array[8]),"q10": parseInt(question_array[9]),"q11": parseInt(question_array[10]),"q12": parseInt(question_array[11]), "q13": parseInt(question_array[12])}}),
+    //  success: function() {
+    //    alert("Everything has been sent!");
+    //  }
+    //});
+
+
+</script>

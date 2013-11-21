@@ -1,5 +1,5 @@
 <% if @side.is_left == true %>
-  $("<li class='ui-state-highlight'><%= escape_javascript(@side.body) %></li>").prependTo("#pro-ideas");
+  $("<li class='ui-state-highlight' style='padding: 10px; border-color: #66CCFF; background: #99E6FF'><%= escape_javascript(@side.body) %></li>").prependTo("#your-pro-ideas");
 <% else %>
-  $("<li class='ui-state-highlight'><%= escape_javascript(@side.body) %></li>").prependTo("#con-ideas");    
+  $("<li class='ui-state-highlight' style='padding: 10px; border-color: #33CC33; background: #85E085'><%= escape_javascript(@side.body) %></li>").prependTo("#your-con-ideas");
 <% end %>

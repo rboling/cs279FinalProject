@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030023957) do
+ActiveRecord::Schema.define(version: 20131121032253) do
 
   create_table "conditions", force: true do |t|
     t.string   "name"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20131030023957) do
 
   add_index "posts", ["condition_id"], name: "index_posts_on_condition_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "responses", force: true do |t|
+    t.integer  "before_information"
+    t.integer  "before_leaning"
+    t.integer  "after_information"
+    t.integer  "after_leaning"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rewards", force: true do |t|
     t.string   "name"
@@ -68,6 +77,7 @@ ActiveRecord::Schema.define(version: 20131030023957) do
     t.datetime "updated_at"
     t.boolean  "is_left"
     t.boolean  "is_right"
+    t.integer  "count",        default: 0
   end
 
   add_index "sides", ["condition_id"], name: "index_sides_on_condition_id", using: :btree
