@@ -118,14 +118,16 @@
 </div>
 
 <script>
+
   $("#the-submit-button").click(function(){
     $("#your-pro-ideas li").each(function(){
       var text = $( this ).text();
       $.ajax({
         url: 'http://ancient-shore-7826.herokuapp.com/sides',
+        //url: 'http://localhost:3000/sides',
         type: 'GET',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-        data: $.param({"side": {"body": text}}),
+        data: $.param({"side": {"body": text}})
         //success: function(){
         //  alert("Thanks for Playing!");
         //}
@@ -135,6 +137,7 @@
       var text = $( this ).text();
       $.ajax({
         url: 'http://ancient-shore-7826.herokuapp.com/sides',
+        //url: 'http://localhost:3000/sides',
         type: 'GET',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         data: $.param({"side": {"body": text}})
@@ -149,11 +152,12 @@
     var after_leaning = $("#leaning-belief-two").val();
     $.ajax({
       url: 'http://http://ancient-shore-7826.herokuapp.com/responses',
+      //url: 'http://localhost:3000/responses',
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-      data: $.param({"response":{"before_information": before_info, "before_leaning": before_leaning, "after_information": after_info, "after_leaning": after_leaning}})
+      data: $.param({"response":{"before_information": before_info, "before_leaning": before_leaning, "after_information": after_info, "after_leaning": after_leaning}}),
       success: function(){
-        alert("Thank You!")
+        alert("Thank You!");
       }
     });
   });
