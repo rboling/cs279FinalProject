@@ -127,10 +127,10 @@
         //url: 'http://localhost:3000/sides',
         type: 'GET',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-        data: $.param({"side": {"body": text}})
-        //success: function(){
-        //  alert("Thanks for Playing!");
-        //}
+        data: $.param({"side": {"body": text}}),
+        success: function(){
+          alert("Thanks for Playing!");
+        }
       });
     });
     $("#your-con-ideas li").each(function(){
@@ -140,10 +140,10 @@
         //url: 'http://localhost:3000/sides',
         type: 'GET',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-        data: $.param({"side": {"body": text}})
-        //success: function(){
-        //  alert("Thanks for Playing!");
-        //}
+        data: $.param({"side": {"body": text}}),
+        success: function(){
+          alert("Thanks for Playing!");
+        }
       });
     });
     var before_info = $("#belief").val();
