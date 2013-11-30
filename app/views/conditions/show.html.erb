@@ -151,7 +151,7 @@
     var after_info = $("#belief-two").val();
     var after_leaning = $("#leaning-belief-two").val();
     $.ajax({
-      url: 'http://http://ancient-shore-7826.herokuapp.com/responses',
+      url: 'http://ancient-shore-7826.herokuapp.com/responses',
       //url: 'http://localhost:3000/responses',
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
