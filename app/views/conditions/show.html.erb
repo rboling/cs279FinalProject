@@ -152,9 +152,9 @@
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: $.param({"response":{"before_information": before_info, "before_leaning": before_leaning, "after_information": after_info, "after_leaning": after_leaning}})
-      //success: function(){
-      //  alert("Your responses have been saved")
-      //}
+      success: function(){
+        alert("Thank You!")
+      }
     });
   });
 
