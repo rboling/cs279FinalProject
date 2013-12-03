@@ -123,8 +123,9 @@
     $("#your-pro-ideas li").each(function(){
       var text = $( this ).text();
       $.ajax({
-        url: 'http://ancient-shore-7826.herokuapp.com/sides',
+        //url: 'http://ancient-shore-7826.herokuapp.com/sides',
         //url: 'http://localhost:3000/sides',
+        url: 'http://cs279finalproject.herokuapp.com/responses',
         type: 'GET',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         data: $.param({"side": {"body": text}})
@@ -136,8 +137,9 @@
     $("#your-con-ideas li").each(function(){
       var text = $( this ).text();
       $.ajax({
-        url: 'http://ancient-shore-7826.herokuapp.com/sides',
+        //url: 'http://ancient-shore-7826.herokuapp.com/sides',
         //url: 'http://localhost:3000/sides',
+        url: 'http://cs279finalproject.herokuapp.com/responses',
         type: 'GET',
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
         data: $.param({"side": {"body": text}})
@@ -151,8 +153,9 @@
     var after_info = $("#belief-two").val();
     var after_leaning = $("#leaning-belief-two").val();
     $.ajax({
-      url: 'http://ancient-shore-7826.herokuapp.com/responses',
+      //url: 'http://ancient-shore-7826.herokuapp.com/responses',
       //url: 'http://localhost:3000/responses',
+      url: 'http://cs279finalproject.herokuapp.com/responses',
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: $.param({"response":{"before_information": before_info, "before_leaning": before_leaning, "after_information": after_info, "after_leaning": after_leaning}}),
