@@ -73,7 +73,7 @@
     <ul id="your-pro-ideas" class="to-sort-pro">
     </ul>
     <ul id="con-ideas" class="to-sort-con">
-      <% (@condition.sides.sort_by{|s| -s.count}).each do |side| %>
+      <% (@condition.sides.sort_by{|s| (-s.count + ((Time.now - s.created_at)/1.hour))}).each do |side| %>
         <% if !(side.is_left)%>
           <li class="ui-state-highlight" style="padding: 10px; border-color: #33CC33; background: #85E085"><%= side.body %></li>
         <% end %>

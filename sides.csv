@@ -1,0 +1,24 @@
+id,condition_id,body,summary,created_at,updated_at,is_left,is_right,count
+1,3,Test One,,2013-11-17 14:46:56.070019,2013-11-17 14:46:56.070019,t,,0
+2,3,test two,,2013-11-17 15:34:11.16268,2013-11-17 15:34:11.16268,f,,0
+18,1,"",,2013-12-02 19:09:12.188133,2013-12-05 19:58:46.82763,f,,4
+6,1,"You don't have to do it yourself, as you would with peritoneal dialysis.",,2013-11-27 03:41:57.9272,2013-12-05 17:46:18.742062,t,,20
+17,1,This is a test reason in favor of HD,,2013-11-27 04:15:00.736647,2013-11-27 04:15:05.549463,t,,1
+19,1,"",,2013-12-03 02:03:02.810738,2013-12-03 02:03:02.810738,t,,0
+22,1,"",,2013-12-05 14:42:11.335696,2013-12-05 14:42:11.335696,t,,0
+5,1,"As a physician, I know that some of my patients appreciate having contact with other individuals having dialysis, which can be a source of emotional support.",,2013-11-27 03:41:14.217976,2013-12-05 21:38:06.275214,t,,24
+7,1,"Depending on the situation, hemodialysis can also be done at home.",,2013-11-27 03:43:28.39615,2013-12-05 17:46:19.016596,t,,25
+9,1,Hemodialysis doesn't require the abdominal surgery that is necessary for peritoneal dialysis patients to have a peritoneal dialysis catheter placed.,,2013-11-27 03:45:53.954476,2013-12-05 21:38:06.3855,t,,31
+16,1,The risk of getting bloodstream infections is less with peritoneal dialysis than with hemodialysis.,,2013-11-27 03:55:41.100835,2013-12-05 21:38:06.513807,f,,43
+20,1,"Poly cystic kidney failure. PD would put too much pressure on other organs considering there is already flank pain on sides to front.  Also, any added pressure in bowl area causes me to feel sick all the time. ",,2013-12-03 18:41:30.737992,2013-12-05 21:38:06.601442,t,,10
+21,1,It hurts less.,,2013-12-05 14:42:07.479852,2013-12-05 21:38:06.708896,t,,11
+10,1,Peritoneal dialysis gives you more freedom than hemodialysis because you can do it at home or any other clean place.,,2013-11-27 03:48:28.580956,2013-12-05 21:38:06.84623,f,,53
+8,1,You can do it for a shorter amount of time and on fewer days per week than peritoneal dialysis.,,2013-11-27 03:44:16.363512,2013-12-05 21:38:07.034819,t,,40
+11,1,Traveling is often easier with peritoneal dialysis because you are not dependent on the availability of a dialysis unit. You just need to bring enough supplies or have them shipped to your destination.,,2013-11-27 03:50:38.83776,2013-12-05 19:35:09.264036,f,,40
+4,1,"With in-center hemodialysis, I like that there is always a nurse to check in with 3 times a week.",,2013-11-21 05:39:33.491431,2013-12-05 19:35:09.332123,t,,14
+3,1,"In the first 2 years of dialysis, PD has a 48% lower mortality than HD. http://www.ncbi.nlm.nih.gov/pubmed/23307879",,2013-11-21 05:38:26.709834,2013-12-05 21:38:07.157666,f,,28
+14,1,"With PD, you don't feel tired like some people do on their hemodialysis days.",,2013-11-27 03:54:06.93676,2013-12-05 21:38:07.440819,f,,24
+13,1,"Peritoneal dialysis doesn't involve needles at all, whereas fistulas and grafts for hemodialysis require needles to be placed to get access for each dialysis session.",,2013-11-27 03:52:49.811201,2013-12-05 19:35:10.127015,f,,31
+15,1,"With PD, you are less likely to have problems with low blood pressures during treatments.",,2013-11-27 03:54:37.450839,2013-12-05 19:35:10.23161,f,,19
+23,1,"",,2013-12-05 19:58:10.681057,2013-12-05 19:58:10.681057,t,,0
+12,1,Peritoneal dialysis doesn't require as many food and fluid restrictions as hemodialysis.,,2013-11-27 03:51:20.619554,2013-12-05 18:47:45.550029,f,,24
