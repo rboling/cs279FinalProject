@@ -45,6 +45,8 @@ gem "sunspot_solr"
 gem "jquery-ui-rails"
 gem 'rails_12factor'
 
+gem 'newrelic_rpm'
+
 gem 'authlogic'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
