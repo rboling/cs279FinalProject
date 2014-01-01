@@ -20,7 +20,6 @@ class SidesController < ApplicationController
   # GET /sides/1
   # GET /sides/1.json
   def show
-
   end
 
   # GET /sides/new
@@ -30,6 +29,7 @@ class SidesController < ApplicationController
 
   # GET /sides/1/edit
   def edit
+    puts "\n\n\n\n\nI am in the edit controller\n\n\n\n\n"
   end
 
   # POST /sides
@@ -39,7 +39,6 @@ class SidesController < ApplicationController
     logger.debug "\n\n\n\n\nIM IN HERE\n\n\n\n\n\n\n"
     respond_to do |format|
       if @side.save
-        logger.debug "fofofofofofofofofofofofofofofofofofofofofofofof"
         format.html {}#redirect_to @side, notice: 'Side was successfully created.' }
         format.json {}#render action: 'show', status: :created, location: @side }
         format.js {}
@@ -53,11 +52,15 @@ class SidesController < ApplicationController
   # PATCH/PUT /sides/1
   # PATCH/PUT /sides/1.json
   def update
-    puts "\n\n\n\n\n\n\n\n\n\nYOYOYOYOYOYOYOYOYOYOYO WE ARE IN HERE GetOnMyLevel\n\n\n\n\n\n\n\n\n\n"
     respond_to do |format|
       if @side.update(side_params)
-        format.html { redirect_to @side, notice: 'Side was successfully updated.' }
-        format.json { head :no_content }
+        Rails.logger.error "\n\n\n\n\n\n\n\n the condition_id \n\n\n\n\n"
+        Rails.logger.error "#{@side.condition_id}"
+        Rails.logger.flush
+        format.html{ redirect_to condition_path(@side.condition_id)}
+        format.json{}
+        #format.html { redirect_to @side, notice: 'Side was successfully updated.' }
+        #format.json { head :no_content }
       else
         format.html { render action: 'edit' }
         format.json { render json: @side.errors, status: :unprocessable_entity }

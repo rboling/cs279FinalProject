@@ -1,6 +1,10 @@
 <br />
+<br />
+<br />
+<br />
+<!-- $('#container *').attr('contenteditable','true');-->
 <div id="landing-stuff">
-  <p><b>RiskIt</b> is a deliberation platform that aims to help people faced with tough medical decisions to make a <i>smarter, more informed</i> decision. Instead of spoonfeeding medical information to individuals from a textbook, RiskIt exposes individuals to the wide array of reasons why <b>patient experts</b> would recommend one therapy versus another. The reasons in favor of one treatment option over another may be medical, practical, or financial, but most importantly, the reasons are <i>personal</i>.</p>
+  <p id="test-txt"><b>RiskIt</b> is a deliberation platform that aims to help people faced with tough medical decisions to make a <i>smarter, more informed</i> decision. Instead of spoonfeeding medical information to individuals from a textbook, RiskIt exposes individuals to the wide array of reasons why <b>patient experts</b> would recommend one therapy versus another. The reasons in favor of one treatment option over another may be medical, practical, or financial, but most importantly, the reasons are <i>personal</i>.</p>
   <p>
   <b>Who are our patient experts?</b>
   <ul>
@@ -50,11 +54,11 @@
       <% end %>
     </div>
     <% @conditions.each do |condition| %>
-      <% if condition.name == "Choosing a type of dialysis" %>
+      <%# if condition.name == "Choosing a type of dialysis" %>
         <tr class="home-condition">
           <td class="home-condition-td"><%= render 'condition_template', :condition => condition %></td>
         </tr>
-      <% end %>
+      <%# end %>
     <% end %>
 </tbody>
 <script>

@@ -27,7 +27,6 @@ class ConditionsController < ApplicationController
   # POST /conditions.json
   def create
     @condition = Condition.new(condition_params)
-
     respond_to do |format|
       if @condition.save
         format.html { redirect_to root_url, notice: 'Condition was successfully created.' }
@@ -72,6 +71,7 @@ class ConditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def condition_params
-      params.require(:condition).permit(:name)
+      params.require(:condition).permit(:name, :opinion_left, :opinion_right)
+      #params.require(:condition).permit(:name)
     end
 end

@@ -1,4 +1,6 @@
 HealthConnect::Application.routes.draw do
+  resources :opinions
+
   resources :responses
 
   resources :sides
@@ -17,7 +19,9 @@ HealthConnect::Application.routes.draw do
 
   resources :user_sessions
 
-  root 'conditions#show', :id => 1
+  #root 'conditions#show', :id => 1
+
+  root 'conditions#index'
 
   get 'home' => 'homes#index'
 

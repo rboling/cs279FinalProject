@@ -15,6 +15,7 @@
 //= require jquery.ui.all
 //= require jquery.ui.slider
 //= require jquery.modal
+//= require jquery.turbolinks
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .

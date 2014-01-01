@@ -1,7 +1,4 @@
 <div class="hero-unit">
-  <% if current_user %>
-    <%= link_to "Edit the Condition", edit_condition_path(@condition)%>
-  <% end %>
   <h1>RiskIt: a deliberation tool for empowered patients</h1>
   <p><b>RiskIt</b> is a deliberation platform that aims to help people faced with tough medical decisions to make a <i>smarter, more informed</i> decision. Instead of spoonfeeding medical information to individuals from a textbook, RiskIt exposes individuals to the wide array of reasons why <b>patient experts</b> would recommend one therapy versus another. The reasons in favor of one treatment option over another may be medical, practical, or financial, but most importantly, the reasons are <i>personal</i>.</p>
   <p><a href="/about" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
@@ -10,7 +7,7 @@
 
 <p id="notice"><%= notice %></p>
 <div id="name-of-condition" style="margin:auto;text-align:center;">
-  <h1><%= @condition.opinion_left_thing.name%> vs. <%= @condition.opinion_right_thing.name %></h1>
+  <h1>Hemodialysis vs. Peritoneal Dialysis</h1>
 </div><hr>
 <div id="step-one">
   <h1>Step 1: What are your current thoughts on this decision?</h1>
@@ -25,19 +22,19 @@
 <div id="leaning">
   <label for="leaning-belief"> <h3>Which way are you leaning?</h3></label>
   <input type="text" id="leaning-belief" style="display: none; border: 0; color: #f6931f; font-weight: bold;" />
-  <div id="slider-two"><span id="hd"><%= @condition.opinion_left_thing.name %></span><span id="pd"><%= @condition.opinion_right_thing.name %></span></div>
+  <div id="slider-two"><span id="hd">Hemodialysis</span><span id="pd">Peritoneal Dialysis</span></div>
   <br />
 </div>
 <div id="step-two">
   <h1>Step 2: Use RiskIt.</h1>
-  <h3>Drag reasons from the outer boxes to the inner boxes, or add your own reasons for why you favor <%= @condition.opinion_left_thing.name %> or <%= @condition.opinion_right_thing.name %>.</h3>
+  <h3>Drag reasons from the outer boxes to the inner boxes, or add your own reasons for why you favor hemodialysis or peritoneal dialysis.</h3>
   <br />
 </div>
 <div id="buttons">
   <!--<button href="#" id="span-pro" class="span-pro-class">Add pro ideas</button>
   <button href="#" id="span-con" class="span-con-class">Add con ideas</button>-->
-  <button href="#" id="span-pro" class="btn btn-primary">&laquo; Add a reason in favor of <%= @condition.opinion_left_thing.name %></button>
-  <button href="#" id="span-con" class="btn btn-primary">Add a reason in favor of <%= @condition.opinion_right_thing.name %> &raquo;</button>
+  <button href="#" id="span-pro" class="btn btn-primary">&laquo; Add a reason in favor of hemodialysis</button>
+  <button href="#" id="span-con" class="btn btn-primary">Add a reason in favor of peritoneal dialysis &raquo;</button>
 </div>
 <div id="the-pro-form">
   <%= render :partial => "side_form", :locals => {:is_left => true, :condition_id => @condition.id} %>
@@ -57,9 +54,9 @@
   <br />
   <div id="instructions">
     <span id="pro-here">Drag Reasons from Here</span>
-    <h5 id="to-here-pro"><%= @condition.opinion_left_thing.name %></h5>
+    <h5 id="to-here-pro">Hemodialysis</h5>
     <span id="con-here">Drag Reasons from Here</span>
-    <h5 id="to-here-con"><%= @condition.opinion_right_thing.name %></h5>
+    <h5 id="to-here-con">Peritoneal Dialysis</h5>
   </div>
   <br />
   <br />
@@ -68,12 +65,7 @@
     <ul id="pro-ideas" class="to-sort-pro">
       <% (@condition.sides.sort_by{|s| (-s.count + ((Time.now - s.created_at)/1.hour))}).each do |side| %>
         <% if side.is_left %>
-          <li class="ui-state-highlight" style="padding: 10px; border-color: #66CCFF; background: #99E6FF">
-            <% if current_user %>
-              <%= link_to "Edit the Side", edit_side_path(side, :condition_id => @condition.id)%>
-            <% end %>
-            <%= side.body %>
-          </li>
+          <li class="ui-state-highlight" style="padding: 10px; border-color: #66CCFF; background: #99E6FF"><%= side.body %></li>
         <% end %>
       <% end %>
     </ul>
@@ -83,12 +75,7 @@
     <ul id="con-ideas" class="to-sort-con">
       <% (@condition.sides.sort_by{|s| (-s.count + ((Time.now - s.created_at)/1.hour))}).each do |side| %>
         <% if !(side.is_left)%>
-          <li class="ui-state-highlight" style="padding: 10px; border-color: #33CC33; background: #85E085">
-            <% if current_user %>
-              <%= link_to "Edit the Side", edit_side_path(side)%>
-            <% end %>
-            <%= side.body %>
-          </li>
+          <li class="ui-state-highlight" style="padding: 10px; border-color: #33CC33; background: #85E085"><%= side.body %></li>
         <% end %>
       <% end %>
     </ul>
@@ -113,7 +100,7 @@
 <div id="leaning-two">
   <label for="leaning-belief-two"> <h3>Which way are you leaning?</h3></label>
   <input type="text" id="leaning-belief-two" style="display: none; border: 0; color: #f6931f; font-weight: bold;" />
-  <div id="slider-four"><span id="hd-two"><%= @condition.opinion_left_thing.name %></span><span id="pd-two"><%= @condition.opinion_right_thing.name %></span></div>
+  <div id="slider-four"><span id="hd-two">Hemodialysis</span><span id="pd-two">Peritoneal Dialysis</span></div>
   <br />
 </div>
 <div id="step-four">

@@ -47,6 +47,8 @@ gem 'rails_12factor'
 
 gem 'newrelic_rpm'
 
+gem 'jquery-turbolinks'
+
 gem 'authlogic'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
