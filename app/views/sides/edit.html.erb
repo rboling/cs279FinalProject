@@ -1,6 +1,6 @@
 <h1>Editing side</h1>
-
-<%= render 'form' %>
-
+<% if current_user %>
+  <%= render 'form' %> 
+<% end %>
 <%= link_to 'Back', condition_path(@side.condition) %>
 <%#= link_to 'Back', sides_path %>

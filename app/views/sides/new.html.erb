@@ -1,3 +1,4 @@
 <h1 id="h1-side">New side</h1>
-
-<%= render 'form', :condition_id => params[:condition_id] %>
+<% if current_user %>
+  <%= render 'form', :condition_id => params[:condition_id] %>
+<% end %>
